@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Data
@@ -19,5 +20,5 @@ public class ToeicTest extends Entity implements Serializable {
     private String name;
     private String linkMP3;
     private String url;
-    private Date dateStart;
+    private Timestamp dateStart;
 }

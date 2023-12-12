@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,8 @@ public class ToeicTestServiceImpl implements ToeicTestService {
         Pageable paging;
         if (page == null) {
             paging = PageRequest.of(0, 10, sorting);
-        } else paging = PageRequest.of(page.getPageNo(), page.getPageSize(), sorting);
+        } else
+            paging = PageRequest.of(page.getPageNo(), page.getPageSize(), sorting);
         return testRepo.findAll(paging);
     }
 
@@ -44,7 +46,7 @@ public class ToeicTestServiceImpl implements ToeicTestService {
     public ToeicTest update(ToeicTest toeicTest) {
         if (toeicTest.getTestId() == null) {
             toeicTest.setTestId(new ObjectId().toString());
-            toeicTest.setUpdatedAt(new Date());
+            toeicTest.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
         }
         return testRepo.save(toeicTest);
     }

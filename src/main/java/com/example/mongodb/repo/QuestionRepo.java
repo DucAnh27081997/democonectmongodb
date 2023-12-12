@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -37,8 +38,7 @@ public class QuestionRepo {
         try {
             if (groupQuestion.getQuestionId() == null) {
                 groupQuestion.setQuestionId(new ObjectId().toString());
-                groupQuestion.setUpdatedAt(new Date());
-                groupQuestion.setCreateAt(new Date());
+                groupQuestion.createTime();
                 return template.insert(groupQuestion);
             } else {
                 GroupQuestion entity = this.findById(groupQuestion.getQuestionId());
@@ -47,7 +47,7 @@ public class QuestionRepo {
                 else {
                     entity.setQuestions(groupQuestion.getQuestions());
                     entity.setUpdatedAt(new Date());
-                    entity.setCreatedBy("ducla_199x");
+                    entity.setCreatedBy("USER_DEFAULT");
                     entity.setTypeQuestion(groupQuestion.getTypeQuestion());
                     entity.setContext(groupQuestion.getContext());
                     return template.save(entity);

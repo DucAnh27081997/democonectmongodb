@@ -16,6 +16,14 @@ public class ResponseBuilderDTO {
         return response;
     }
 
+    public <T> ResponseDTO<T> success(T body,String message) {
+        ResponseDTO<T> response = new ResponseDTO<>();
+        response.setStatus(Status.SUCCESS);
+        response.setMessage(message);
+        response.setBody(body);
+        return response;
+    }
+
     public ResponseDTO success(String message) {
         ResponseDTO response = new ResponseDTO<>();
         response.setStatus(Status.SUCCESS);
