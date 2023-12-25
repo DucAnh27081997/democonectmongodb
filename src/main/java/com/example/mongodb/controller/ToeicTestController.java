@@ -86,6 +86,7 @@ public class ToeicTestController {
         }
     }
 
+    //ducla
     @DeleteMapping("/delete")
     public ResponseDTO<String> delete(@RequestParam String id) {
         try {
