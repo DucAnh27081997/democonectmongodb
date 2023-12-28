@@ -1,5 +1,6 @@
 package com.example.mongodb.model;
 
+import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +22,9 @@ public class Token {
     private boolean isMobile;
     private Date expiryDate;
     private Date createAt;
+
+    @PrePersist
+    protected void onCreate(){
+        createAt = new Date();
+    }
 }

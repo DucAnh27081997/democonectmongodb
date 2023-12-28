@@ -38,7 +38,6 @@ public class QuestionRepo {
         try {
             if (groupQuestion.getQuestionId() == null) {
                 groupQuestion.setQuestionId(new ObjectId().toString());
-                groupQuestion.createTime();
                 return template.insert(groupQuestion);
             } else {
                 GroupQuestion entity = this.findById(groupQuestion.getQuestionId());
