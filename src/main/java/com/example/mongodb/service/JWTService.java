@@ -124,26 +124,26 @@ public class JWTService {
         return new SecretKeySpec(Base64.getDecoder().decode(base64Secret), SignatureAlgorithm.HS256.getJcaName());
     }
 
-    public static void main(String[] args) {
-
-        //String jwtSecret = "2EJR4zS41QuRT9M_VI5egnPQ9UFXEG7xfdktdIIbRlE";
-        String encode = "S2V5LU11c3QtQmUtYXQtbGVhc3QtMzItYnl0ZXMtaW4tbGVuZ3RoIQ==";
-
-        Key hmacKey = new SecretKeySpec(encode.getBytes(),
-                SignatureAlgorithm.HS256.getJcaName());
-
-        System.out.println("decode: " + new String(Base64.getDecoder().decode(encode)));
-        System.out.println("byte length: " + (encode.getBytes().length));
-        System.out.println("Key: " + new String(hmacKey.getFormat()));
-        try {
-
-            String strJWT = generateJwtToken(hmacKey, "ducla");
-            System.out.println(strJWT);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-    }
+//    public static void main(String[] args) {
+//
+//        //String jwtSecret = "2EJR4zS41QuRT9M_VI5egnPQ9UFXEG7xfdktdIIbRlE";
+//        String encode = "S2V5LU11c3QtQmUtYXQtbGVhc3QtMzItYnl0ZXMtaW4tbGVuZ3RoIQ==";
+//
+//        Key hmacKey = new SecretKeySpec(encode.getBytes(),
+//                SignatureAlgorithm.HS256.getJcaName());
+//
+//        System.out.println("decode: " + new String(Base64.getDecoder().decode(encode)));
+//        System.out.println("byte length: " + (encode.getBytes().length));
+//        System.out.println("Key: " + new String(hmacKey.getFormat()));
+//        try {
+//
+//            String strJWT = generateJwtToken(hmacKey, "ducla");
+//            System.out.println(strJWT);
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//    }
 
 //    public static void main(String[] args) throws NoSuchAlgorithmException {
 //        System.out.printf(convertKey("asdfSFS34wfsdfsdfSDSD32dfsddDDerQSNCK34SOWEK5354fdgdf4").getAlgorithm());
