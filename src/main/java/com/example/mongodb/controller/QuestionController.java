@@ -2,14 +2,16 @@ package com.example.mongodb.controller;
 
 import com.example.mongodb.model.GroupQuestion;
 import com.example.mongodb.service.QuestionService;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.logging.Logger;
+
 @RestController
 @RequestMapping(value = "/api/question")
-@Log4j2
+
 public class QuestionController {
+    //private Logger log = Logger.getLogger(QuestionController.class.getName());
 
     @Autowired
     QuestionService questionService;
@@ -19,7 +21,7 @@ public class QuestionController {
         try {
             return questionService.add(request);
         } catch (Exception e) {
-            log.error(e);
+            //log.log(e);
         }
         return null;
     }
@@ -29,7 +31,7 @@ public class QuestionController {
         try {
             return questionService.findById(id);
         } catch (Exception e) {
-            log.error(e);
+            //log.error(e);
         }
         return null;
     }

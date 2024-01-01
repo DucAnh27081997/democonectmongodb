@@ -1,7 +1,7 @@
 package com.example.mongodb.model;
 
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
+//import jakarta.persistence.PrePersist;
+//import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,12 +21,12 @@ public class Entity {
     private Date updatedAt;
     private Date createAt;
 
-    @PrePersist
+//    @PrePersist
     protected void onCreate(){
         createAt = new Date();
     }
 
-    @PreUpdate
+//    @PreUpdate
     public void preUpdate() {
         System.out.println("pre update!");
         updatedAt = new Date();
